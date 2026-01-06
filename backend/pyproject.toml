@@ -2,6 +2,9 @@
 name = "backend"
 version = "0.1.0"
 description = "Add your description here"
+authors = [
+    {name = "Elias Gutierrez",email = "gutierrezelias1991@gmail.com"}
+]
 readme = "README.md"
 requires-python = ">=3.14.2"
 dependencies = []
@@ -10,3 +13,16 @@ dependencies = []
 dev = [
     "pre-commit>=4.5.1",
 ]
+
+[tool.black]
+line-length = 88
+target-version = ['py310', 'py311', 'py312', 'py313', 'py314']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "google"
+combine_as_imports = true
+include_trailing_comma = true
+line_length = 88
+multi_line_output = 3
+known_first_party = ["app"]
