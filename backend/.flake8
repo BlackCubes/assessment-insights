@@ -2,4 +2,4 @@
 max-line-length = 88
 ignore = E501, W503
 per-file-ignores =
-    src/config/settings/*:F405 F403 F401
+    backend/src/config/settings/*:F405 F403 F401
