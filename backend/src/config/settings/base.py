@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Local apps
+    "apps.academics.apps.AcademicsConfig",
     "apps.assessments.apps.AssessmentsConfig",
     "apps.grades.apps.GradesConfig",
     "apps.students.apps.StudentsConfig",
