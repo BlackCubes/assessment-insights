@@ -5,7 +5,9 @@ from common.models import BaseModel
 
 
 class Period(BaseModel):
-    period_number = models.PositiveIntegerField(validators=[validators.MinValueValidator(limit_value=1)])
+    period_number = models.PositiveIntegerField(
+        validators=[validators.MinValueValidator(limit_value=1)]
+    )
     name = models.CharField(max_length=20)
 
     class Meta:
