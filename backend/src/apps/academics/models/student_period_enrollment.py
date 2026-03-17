@@ -1,9 +1,11 @@
 from django.db import models
 
+from apps.students.models import Student
 from common.models import BaseModel
+
 from .period import Period
 from .term import Term
-from apps.students.models import Student
+
 
 class StudentPeriodEnrollment(BaseModel):
     student = models.ForeignKey(
@@ -27,6 +29,7 @@ class StudentPeriodEnrollment(BaseModel):
                 condition=models.Q(is_current=True),
                 name="unique_current_period_per_student_per_term",
             ),
-]
+        ]
+
     def __str__(self):
         return f"{self.student} - {self.period} - {self.term}"
