@@ -1,5 +1,5 @@
 import os
-from pathlib import Path
+
 
 DATA_DIR = os.getenv("DATA_DIR", "")
 STATIC_DIR = os.getenv("STATIC_DIR", "")
