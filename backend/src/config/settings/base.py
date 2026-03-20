@@ -1,6 +1,5 @@
 import os
 
-
 DATA_DIR = os.getenv("DATA_DIR", "")
 STATIC_DIR = os.getenv("STATIC_DIR", "")
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
