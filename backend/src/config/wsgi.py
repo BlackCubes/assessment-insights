@@ -4,7 +4,7 @@ from django.core.wsgi import get_wsgi_application
 
 DJANGO_SETTINGS_MODULE = (
     "config.settings.dev"
-    if (os.getenv("DEBUG", "TRUE") == "TRUE")
+    if (os.getenv("DEBUG", "True") == "True")
     else "config.settings.prod"
 )
 
