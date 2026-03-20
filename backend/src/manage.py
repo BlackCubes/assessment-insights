@@ -4,13 +4,17 @@
 import os
 import sys
 
+from dotenv import load_dotenv
+
 
 def main():
     """Run administrative tasks."""
 
+    load_dotenv()
+
     DJANGO_SETTINGS_MODULE = (
         "config.settings.dev"
-        if (os.getenv("DEBUG", "TRUE") == "TRUE")
+        if (os.getenv("DEBUG", "True") == "True")
         else "config.settings.prod"
     )
 
