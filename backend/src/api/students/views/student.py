@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions
 
+from api.mixins import MultipleFieldLookupMixin
 from api.students.serializers import StudentSerializer
 from apps.students.models import Student
-from common.mixins import MultipleFieldLookupMixin
 
 
 class StudentListCreateView(generics.ListCreateAPIView):
