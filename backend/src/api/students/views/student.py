@@ -14,4 +14,5 @@ class StudentListView(generics.ListAPIView):
 class StudentDetailView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = Student.objects.all()
+    serializer_class = StudentSerializer
     lookup_fields = ["uuid", "student_id"]
