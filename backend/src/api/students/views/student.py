@@ -11,7 +11,7 @@ class StudentListCreateView(generics.ListCreateAPIView):
     serializer_class = StudentSerializer
 
 
-class StudentDetailView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
+class StudentDetailUpdateView(MultipleFieldLookupMixin, generics.RetrieveUpdateAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
