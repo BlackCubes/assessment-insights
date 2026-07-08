@@ -5,7 +5,7 @@ from apps.students.models import Student
 from common.mixins import MultipleFieldLookupMixin
 
 
-class StudentListView(generics.ListAPIView):
+class StudentListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = Student.objects.all().order_by("full_name")
     serializer_class = StudentSerializer
