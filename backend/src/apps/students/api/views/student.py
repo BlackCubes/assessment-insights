@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
 from api.mixins import MultipleFieldLookupMixin
-from api.students.serializers import StudentSerializer
+from apps.students.api.serializers import StudentSerializer
 from apps.students.models import Student
 
 
