@@ -84,7 +84,9 @@ REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [
         "api.renderers.FinalSuccessJSONRenderer",
         "rest_framework.renderers.BrowsableAPIRenderer",
-    ]
+    ],
+    "DEFAULT_PAGINATION_CLASS": "api.pagination.CustomPageNumberPagination",
+    "PAGE_SIZE": 25,
 }
 
 LANGUAGE_CODE = "en-us"
