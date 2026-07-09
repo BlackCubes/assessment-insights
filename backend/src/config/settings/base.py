@@ -81,6 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
+    "EXCEPTION_HANDLER": "api.exception_handlers.api_exception_handler",
     "DEFAULT_RENDERER_CLASSES": [
         "api.renderers.FinalSuccessJSONRenderer",
         "rest_framework.renderers.BrowsableAPIRenderer",
