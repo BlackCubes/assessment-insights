@@ -80,6 +80,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": [
+        "api.renderers.FinalSuccessJSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
+    ]
+}
+
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
