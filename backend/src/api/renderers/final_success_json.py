@@ -8,6 +8,21 @@ from api.responses import build_success_payload
 
 
 class FinalSuccessJSONRenderer(JSONRenderer):
+    """
+    Custom JSON renderer that wraps successful responses in a standardized payload.
+    This renderer is used to ensure that all successful API responses follow a consistent structure.
+    It checks the response status code and wraps the data in a success payload if the response is successful (2xx status codes). For non-successful responses, it falls back to the default rendering behavior of the JSONRenderer.
+
+    Attributes
+    -----------
+        None
+
+    Methods
+    -------
+        render(data: Any, accepted_media_type: str | None = None, renderer_context: dict[str, Any] | None = None) -> bytes:
+            Renders the response data into a JSON format, wrapping successful responses in a standardized payload.
+    """
+
     def render(
         self,
         data: Any,
