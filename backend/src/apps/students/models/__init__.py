@@ -1,1 +1,3 @@
-from .student import *
+from .student import Student
+
+__all__ = ["Student"]
