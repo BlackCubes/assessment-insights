@@ -1,12 +1,12 @@
 from dataclasses import dataclass
 
-from django.core.exceptions import ValidationError
-from django.db import transaction
+from django.db import IntegrityError, transaction
 
+from apps.students.exceptions import StudentAlreadyExists
 from apps.students.models import Student
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class CreateStudentData:
     full_name: str
     gender: str
@@ -15,15 +15,12 @@ class CreateStudentData:
 
 @transaction.atomic
 def create_student(*, data: CreateStudentData) -> Student:
-    existing_student = Student.objects.filter(student_id=data.student_id).first()
-
-    if existing_student:
-        raise ValidationError("The student already exists.")
-
-    student = Student.objects.create(
-        full_name=data.full_name.strip(),
-        gender=data.gender.strip(),
-        student_id=data.student_id.strip(),
-    )
-
-    return student
+    try:
+        with transaction.atomic():
+            return Student.objects.create(
+                full_name=data.full_name.strip(),
+                gender=data.gender.strip(),
+                student_id=data.student_id.strip().upper(),
+            )
+    except IntegrityError as exc:
+        raise StudentAlreadyExists("The student already exists.") from exc
