@@ -1,4 +1,4 @@
-from .student import StudentDetailUpdateView
 from .student_collection import StudentListCreateView
+from .student_detail import StudentDetailView
 
-__all__ = ["StudentDetailUpdateView", "StudentListCreateView"]
+__all__ = ["StudentDetailView", "StudentListCreateView"]
