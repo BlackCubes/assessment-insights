@@ -5,11 +5,9 @@ from apps.students.services import CreateStudentData, create_student
 
 
 class StudentCreateSerializer(serializers.Serializer):
-    full_name = serializers.CharField(max_length=Student.full_name.max_length)
-    gender = serializers.CharField(
-        max_length=Student.gender.max_length, choices=Student.GenderTypes.choices
-    )
-    student_id = serializers.CharField(max_length=Student.student_id.max_length)
+    full_name = serializers.CharField(max_length=255)
+    gender = serializers.ChoiceField(choices=["M", "F", "O"])
+    student_id = serializers.CharField(max_length=10)
 
     def create(self, validated_data: dict[str, str]) -> Student:
         return create_student(
