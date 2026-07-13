@@ -2,7 +2,7 @@ from typing import Any
 
 from rest_framework import serializers
 
-from apps.students.exceptions import StudentAlreadyExists
+from apps.students.exceptions import StudentAlreadyExistException
 from apps.students.models import Student
 from apps.students.services import CreateStudentData, create_student
 
@@ -48,7 +48,7 @@ class StudentSerializer(serializers.ModelSerializer[Student]):
                     student_id=validated_data["student_id"],
                 )
             )
-        except StudentAlreadyExists as exc:
+        except StudentAlreadyExistException as exc:
             raise serializers.ValidationError(
                 str(exc), code="student_already_exists"
             ) from exc

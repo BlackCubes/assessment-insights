@@ -1,6 +1,6 @@
-class StudentServiceError(Exception):
+class StudentServiceException(Exception):
     pass
 
 
-class StudentAlreadyExists(StudentServiceError):
+class StudentAlreadyExistException(StudentServiceException):
     pass
