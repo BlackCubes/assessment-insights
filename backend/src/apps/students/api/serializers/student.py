@@ -4,7 +4,12 @@ from rest_framework import serializers
 
 from apps.students.exceptions import StudentAlreadyExistException
 from apps.students.models import Student
-from apps.students.services import CreateStudentData, create_student
+from apps.students.services import (
+    CreateStudentData,
+    UpdateStudentData,
+    create_student,
+    update_student,
+)
 
 
 class StudentSerializer(serializers.ModelSerializer[Student]):
@@ -47,6 +52,21 @@ class StudentSerializer(serializers.ModelSerializer[Student]):
                     gender=validated_data["gender"],
                     student_id=validated_data["student_id"],
                 )
+            )
+        except StudentAlreadyExistException as exc:
+            raise serializers.ValidationError(
+                str(exc), code="student_already_exists"
+            ) from exc
+
+    def update(self, instance: Student, validated_data: dict[str, Any]) -> Student:
+        try:
+            return update_student(
+                student=instance,
+                data=UpdateStudentData(
+                    full_name=validated_data.get("full_name"),
+                    gender=validated_data.get("gender"),
+                    student_id=validated_data.get("student_id"),
+                ),
             )
         except StudentAlreadyExistException as exc:
             raise serializers.ValidationError(
