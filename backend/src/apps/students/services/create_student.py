@@ -13,7 +13,6 @@ class CreateStudentData:
     student_id: str
 
 
-@transaction.atomic
 def create_student(*, data: CreateStudentData) -> Student:
     try:
         with transaction.atomic():
