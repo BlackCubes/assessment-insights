@@ -17,7 +17,7 @@ class CreateStudentData:
 def create_student(*, data: CreateStudentData) -> Student:
     existing_student = Student.objects.filter(student_id=data.student_id).first()
 
-    if not existing_student:
+    if existing_student:
         raise ValidationError("The student already exists.")
 
     student = Student.objects.create(
