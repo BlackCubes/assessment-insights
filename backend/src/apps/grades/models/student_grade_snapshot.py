@@ -17,7 +17,7 @@ class StudentGradeSnapshot(BaseModel):
     is_current_grade = models.BooleanField(default=False)
     recorded_at = models.DateTimeField(default=current_datetime_utc())
 
-    class Meta:
+    class Meta(BaseModel.Meta):
         constraints = [
             models.UniqueConstraint(
                 fields=["student", "term"],
