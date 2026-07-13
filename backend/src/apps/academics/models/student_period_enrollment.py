@@ -19,7 +19,7 @@ class StudentPeriodEnrollment(BaseModel):
     )
     is_current = models.BooleanField(default=False)
 
-    class Meta:
+    class Meta(BaseModel.Meta):
         constraints = [
             models.UniqueConstraint(
                 fields=["student", "period", "term"], name="unique_student_period_term"

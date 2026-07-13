@@ -21,7 +21,7 @@ class Term(BaseModel):
     )
     name = models.CharField(max_length=20)
 
-    class Meta:
+    class Meta(BaseModel.Meta):
         constraints = [
             models.UniqueConstraint(
                 fields=["school_year", "semester"], name="unique_term"
