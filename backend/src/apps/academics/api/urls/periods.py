@@ -6,6 +6,6 @@ app_name = "periods"
 
 urlpatterns = [
     path("", PeriodListCreateView.as_view(), name="list-create"),
-    path("<uuid:uuid>", PeriodDetailView.as_view(), name="detail"),
-    path("<int:period_number>", PeriodDetailView.as_view(), name="detail"),
+    path("<uuid:uuid>/", PeriodDetailView.as_view(), name="detail"),
+    path("<int:period_number>/", PeriodDetailView.as_view(), name="detail"),
 ]
