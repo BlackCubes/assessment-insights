@@ -4,7 +4,12 @@ from rest_framework import serializers
 
 from apps.academics.exceptions import PeriodAlreadyExistsException
 from apps.academics.models import Period
-from apps.academics.services import CreatePeriodData, create_period
+from apps.academics.services import (
+    CreatePeriodData,
+    UpdatePeriodData,
+    create_period,
+    update_period,
+)
 
 
 class PeriodSerializer(serializers.ModelSerializer[Period]):
@@ -27,4 +32,18 @@ class PeriodSerializer(serializers.ModelSerializer[Period]):
         except PeriodAlreadyExistsException as exc:
             raise serializers.ValidationError(
                 str(exc), code="period_already_exists"
+            ) from exc
+
+    def update(self, instance: Period, validated_data: dict[str, Any]) -> Period:
+        try:
+            return update_period(
+                period=instance,
+                data=UpdatePeriodData(
+                    name=validated_data.get("name"),
+                    period_number=validated_data.get("period_number"),
+                ),
+            )
+        except PeriodAlreadyExistsException as exc:
+            raise serializers.ValidationError(
+                str(exc), "period_already_exists"
             ) from exc
