@@ -9,12 +9,14 @@ from apps.academics.models import Period
 @dataclass(frozen=True, slots=True)
 class CreatePeriodData:
     name: str
-    period: int
+    period_number: int
 
 
 def create_period(*, data: CreatePeriodData) -> Period:
     try:
         with transaction.atomic():
-            return Period.objects.create(period=data.period, name=data.name.strip())
+            return Period.objects.create(
+                period_number=data.period_number, name=data.name.strip()
+            )
     except IntegrityError as exc:
         raise PeriodAlreadyExistsException("The period already exists.") from exc
