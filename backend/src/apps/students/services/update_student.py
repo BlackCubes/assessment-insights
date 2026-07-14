@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from django.db import IntegrityError, transaction
 from django.utils import timezone
 
-from apps.students.exceptions import StudentAlreadyExistException
+from apps.students.exceptions import StudentAlreadyExistsException
 from apps.students.models import Student
 
 
@@ -48,6 +48,6 @@ def update_student(*, student: Student, data: UpdateStudentData) -> Student:
         with transaction.atomic():
             student.save(update_fields=updated_fields)
     except IntegrityError as exc:
-        raise StudentAlreadyExistException("The student already exists.") from exc
+        raise StudentAlreadyExistsException("The student already exists.") from exc
 
     return student

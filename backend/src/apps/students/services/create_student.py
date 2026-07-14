@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from django.db import IntegrityError, transaction
 
-from apps.students.exceptions import StudentAlreadyExistException
+from apps.students.exceptions import StudentAlreadyExistsException
 from apps.students.models import Student
 
 
@@ -22,4 +22,4 @@ def create_student(*, data: CreateStudentData) -> Student:
                 student_id=data.student_id.strip().upper(),
             )
     except IntegrityError as exc:
-        raise StudentAlreadyExistException("The student already exists.") from exc
+        raise StudentAlreadyExistsException("The student already exists.") from exc

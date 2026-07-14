@@ -2,7 +2,7 @@ from typing import Any
 
 from rest_framework import serializers
 
-from apps.students.exceptions import StudentAlreadyExistException
+from apps.students.exceptions import StudentAlreadyExistsException
 from apps.students.models import Student
 from apps.students.services import (
     CreateStudentData,
@@ -53,7 +53,7 @@ class StudentSerializer(serializers.ModelSerializer[Student]):
                     student_id=validated_data["student_id"],
                 )
             )
-        except StudentAlreadyExistException as exc:
+        except StudentAlreadyExistsException as exc:
             raise serializers.ValidationError(
                 str(exc), code="student_already_exists"
             ) from exc
@@ -68,7 +68,7 @@ class StudentSerializer(serializers.ModelSerializer[Student]):
                     student_id=validated_data.get("student_id"),
                 ),
             )
-        except StudentAlreadyExistException as exc:
+        except StudentAlreadyExistsException as exc:
             raise serializers.ValidationError(
                 str(exc), code="student_already_exists"
             ) from exc
