@@ -8,8 +8,8 @@ from apps.academics.models import Period
 
 @dataclass(frozen=True, slots=True)
 class CreatePeriodData:
-    period: int
     name: str
+    period: int
 
 
 def create_period(*, data: CreatePeriodData) -> Period:
