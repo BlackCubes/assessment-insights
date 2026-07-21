@@ -20,10 +20,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/v1/students/", include("apps.students.api.urls", namespace="students")),
-    path(
-        "api/v1/academics/", include("apps.academics.api.urls", namespace="academics")
-    ),
+    path("api/v1/", include("api.urls", namespace="api")),
 ]
 
 handler404 = "api.error_views.api_page_not_found"
