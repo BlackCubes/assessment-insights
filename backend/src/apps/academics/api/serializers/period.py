@@ -45,5 +45,5 @@ class PeriodSerializer(serializers.ModelSerializer[Period]):
             )
         except PeriodAlreadyExistsException as exc:
             raise serializers.ValidationError(
-                str(exc), "period_already_exists"
+                str(exc), code="period_already_exists"
             ) from exc
