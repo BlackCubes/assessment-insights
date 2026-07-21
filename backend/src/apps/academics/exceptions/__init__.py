@@ -1,11 +1,17 @@
 from .base import AcademicsException
 from .periods import PeriodAlreadyExistsException, PeriodException
+from .student_period_enrollments import (
+    StudentPeriodEnrollmentAlreadyExistsException,
+    StudentPeriodEnrollmentException,
+)
 from .terms import TermAlreadyExistsException, TermException
 
 __all__ = [
     "AcademicsException",
-    "PeriodException",
     "PeriodAlreadyExistsException",
-    "TermException",
+    "PeriodException",
+    "StudentPeriodEnrollmentAlreadyExistsException",
+    "StudentPeriodEnrollmentException",
     "TermAlreadyExistsException",
+    "TermException",
 ]
