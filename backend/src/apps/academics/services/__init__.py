@@ -5,7 +5,10 @@ from .create_student_period_enrollment import (
 )
 from .create_term import CreateTermData, create_term
 from .update_period import UpdatePeriodData, update_period
-from .update_student_period_enrollment import UpdateStudentPeriodEnrollmentData, update_student_period_enrollment
+from .update_student_period_enrollment import (
+    UpdateStudentPeriodEnrollmentData,
+    update_student_period_enrollment,
+)
 from .update_term import UpdateTermData, update_term
 
 __all__ = [

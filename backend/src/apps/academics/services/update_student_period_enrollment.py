@@ -16,7 +16,11 @@ class UpdateStudentPeriodEnrollmentData:
     is_current: bool | None = None
 
 
-def update_student_period_enrollment(*, student_period_enrollment: StudentPeriodEnrollment, data: UpdateStudentPeriodEnrollmentData) -> StudentPeriodEnrollment:
+def update_student_period_enrollment(
+    *,
+    student_period_enrollment: StudentPeriodEnrollment,
+    data: UpdateStudentPeriodEnrollmentData,
+) -> StudentPeriodEnrollment:
     updated_fields: list[str] = []
 
     if data.student is not None and student_period_enrollment.student != data.student:
