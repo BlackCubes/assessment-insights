@@ -24,7 +24,7 @@ class StudentGradeSnapshotSerializer(serializers.ModelSerializer[StudentGradeSna
         decimal_places=4,
         validators=[
             MinValueValidator(Decimal("0")),
-            MaxValueValidator(Decimal("0.9999")),
+            MaxValueValidator(Decimal("1")),
         ],
     )
     is_current_grade = serializers.BooleanField(default=True)
