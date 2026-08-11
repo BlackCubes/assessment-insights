@@ -1,3 +1,4 @@
 from .student_grade_snapshot import StudentGradeSnapshotSerializer
+from .student_grade_snapshot_bulk import StudentGradeSnapshotBulkCreateSerializer
 
-__all__ = ["StudentGradeSnapshotSerializer"]
+__all__ = ["StudentGradeSnapshotSerializer", "StudentGradeSnapshotBulkCreateSerializer"]
