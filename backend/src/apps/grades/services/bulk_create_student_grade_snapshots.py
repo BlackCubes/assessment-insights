@@ -2,7 +2,10 @@ from dataclasses import dataclass
 
 from apps.grades.exceptions import StudentGradeSnapshotException
 from apps.grades.models import StudentGradeSnapshot
-from apps.grades.services.create_student_grade_snapshot import CreateStudentGradeSnapshotData, create_student_grade_snapshot
+from apps.grades.services.create_student_grade_snapshot import (
+    CreateStudentGradeSnapshotData,
+    create_student_grade_snapshot,
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -12,7 +15,9 @@ class BulkCreateResult:
     error: str | None
 
 
-def bulk_create_student_grade_snapshots(*, data: list[CreateStudentGradeSnapshotData]) -> list[BulkCreateResult]:
+def bulk_create_student_grade_snapshots(
+    *, data: list[CreateStudentGradeSnapshotData]
+) -> list[BulkCreateResult]:
     results: list[BulkCreateResult] = []
 
     for index, item in enumerate(data):
