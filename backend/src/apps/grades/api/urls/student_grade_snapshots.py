@@ -1,6 +1,9 @@
 from django.urls import path
 
-from apps.grades.api.views import StudentGradeSnapshotDetailView, StudentGradeSnapshotListCreateView
+from apps.grades.api.views import (
+    StudentGradeSnapshotDetailView,
+    StudentGradeSnapshotListCreateView,
+)
 
 urlpatterns = [
     path("", StudentGradeSnapshotListCreateView.as_view(), name="list-create"),
