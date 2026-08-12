@@ -8,7 +8,9 @@
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "lint": "eslint .",
-    "lint:app": "eslint app/**/*.{js,jsx}"
+    "lint:app": "eslint app/**/*.{js,jsx}",
+    "format": "prettier --write .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@react-router/node": "^8",
